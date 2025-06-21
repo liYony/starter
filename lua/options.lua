@@ -6,8 +6,6 @@ vim.o.cursorlineopt ='both' -- to enable cursorline!
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.shiftwidth = 4          -- the number of spaces inserted for each indentation
-vim.opt.tabstop = 4             -- insert 4 spaces for a tab
 
 --- Enable OSC 52 for copying to system clipboard in SSH
 -- See: https://github.com/neovim/neovim/issues/28611#issuecomment-2147744670
@@ -32,3 +30,35 @@ if os.getenv "SSH_TTY" then
     },
   }
 end
+
+--- Automatically set indentation
+local function setup_indent()
+  local ft = vim.bo.filetype
+  if ft == "lua" then
+    vim.bo.tabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.softtabstop = 2
+    vim.bo.expandtab = true
+  else
+    vim.bo.tabstop = 4
+    vim.bo.shiftwidth = 4
+    vim.bo.softtabstop = 4
+    vim.bo.expandtab = true
+  end
+end
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = setup_indent
+})
+
+--- Automatically enter the target path
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function(args)
+    if vim.fn.isdirectory(args.file) then
+      vim.cmd.cd(args.file)
+    end
+  end
+})
+
