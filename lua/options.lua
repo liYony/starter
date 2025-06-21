@@ -2,7 +2,7 @@ require "nvchad.options"
 
 -- add yours here!
 
-vim.o.cursorlineopt ='both' -- to enable cursorline!
+vim.o.cursorlineopt = 'both' -- to enable cursorline!
 
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
@@ -52,13 +52,28 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = setup_indent
 })
 
---- Automatically enter the target path
+--- Automatically enter NvimTree
 vim.api.nvim_create_autocmd("VimEnter", {
   pattern = "*",
   callback = function(args)
-    if vim.fn.isdirectory(args.file) then
-      vim.cmd.cd(args.file)
+    if args.file ~= "" and vim.fn.isdirectory(args.file) == 1 then
+      local target_dir = vim.fn.fnamemodify(args.file, ":p")  -- get absolute path
+      vim.cmd.cd(target_dir)
+      local open_nvimtree = function()
+        pcall(function()
+          if pcall(require, "nvim-tree.api") then
+            require("nvim-tree.api").tree.open()
+          else
+            vim.cmd("NvimTreeOpen")
+          end
+          vim.cmd("wincmd p")
+        end)
+      end
+      if vim.v.vim_did_enter == 1 then  -- neovim has finished loading
+        open_nvimtree()
+      else
+        vim.defer_fn(open_nvimtree, 100)
+      end
     end
   end
 })
-

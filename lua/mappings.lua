@@ -55,12 +55,14 @@ end, { desc = "terminal toggle horizontal term" })
 map({ "n", "i", "v", "t" }, "<A-i>", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "terminal toggle floating term" })
+map("t", "<Esc>", "<C-\\><C-n>", { noremap = true, desc = "terminal toggle quit"})
+map("t", "<A-q>", "<C-\\><C-n>:q!<CR>", { noremap = true, desc = "terminal toggle close" })
 
 --- CopilotChat
-vim.keymap.set({ 'n', 'v' }, '<leader>cc', ':CopilotChatToggle<CR>')
-vim.keymap.set({ 'n', 'v' }, '<leader>ce', ':CopilotChatExplain<CR>')
-vim.keymap.set({ 'n', 'v' }, '<leader>ct', ':CopilotChatTests<CR>')
-vim.keymap.set({ 'n', 'v' }, '<leader>cr', ':CopilotChatReview<CR>')
-vim.keymap.set({ 'n', 'v' }, '<leader>cf', ':CopilotChatFix<CR>')
-vim.keymap.set({ 'n', 'v' }, '<leader>cm', ':CopilotChatCommit<CR>')
+map({ 'n', 'v' }, '<leader>cc', ':CopilotChatToggle<CR>')
+map({ 'n', 'v' }, '<leader>ce', ':CopilotChatExplain<CR>')
+map({ 'n', 'v' }, '<leader>ct', ':CopilotChatTests<CR>')
+map({ 'n', 'v' }, '<leader>cr', ':CopilotChatReview<CR>')
+map({ 'n', 'v' }, '<leader>cf', ':CopilotChatFix<CR>')
+map({ 'n', 'v' }, '<leader>cm', ':CopilotChatCommit<CR>')
 
