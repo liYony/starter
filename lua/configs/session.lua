@@ -23,7 +23,10 @@ vim.api.nvim_create_autocmd('User', {
   pattern = "SessionLoadPost",
   group = cfg_group,
   callback = function()
-    require('nvim-tree.api').tree.toggle(false, true)
+    require('nvim-tree.api').tree.open({
+      focus = false, -- Don't focus the tree after opening it
+      find_file = true, -- Find the current file in the tree
+    })
   end,
 })
 

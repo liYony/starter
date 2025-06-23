@@ -7,6 +7,10 @@ vim.o.cursorlineopt = 'both' -- to enable cursorline!
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+-- Enable Neovim's local configuration file feature(.nvim.lua, .nvimrc, .exrc)
+vim.opt.exrc = true
+vim.opt.secure = true
+
 --- Enable OSC 52 for copying to system clipboard in SSH
 -- See: https://github.com/neovim/neovim/issues/28611#issuecomment-2147744670
 if os.getenv "SSH_TTY" then
