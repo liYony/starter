@@ -69,3 +69,6 @@ map({ 'n', 'v' }, '<leader>cm', ':CopilotChatCommit<CR>')
 -- Session Management
 map("n", "<leader>ss", "<cmd>SessionManager load_session<cr>", { desc = "Load session" })
 map("n", "<leader>sd", "<cmd>SessionManager delete_session<cr>", { desc = "Delete session" })
+
+-- Aerial
+map("n", "<leader>a", "<cmd>AerialToggle!<CR>", { desc = "Toggle Aerial" })
