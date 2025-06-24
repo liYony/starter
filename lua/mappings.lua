@@ -10,7 +10,7 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "gb", "<C-o>", { desc = "jump jump back" })
 
 --- <Leader>
-map({ "n", "i", "v" }, "<leader>q", "<cmd> q! <cr>")
+map({ "n", "v" }, "<leader>q", "<cmd> q! <cr>")
 
 --- Editing
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>", { desc = "file save" })

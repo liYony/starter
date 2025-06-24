@@ -7,8 +7,6 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     lazy = false,            -- load on startup
-    opts = function()
-      return require("configs.copilot")
-    end,
+    opts = require("configs.copilot"),
   },
 }
