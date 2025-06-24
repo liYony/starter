@@ -1,5 +1,10 @@
 return {
   {
+    "nvim-tree/nvim-tree.lua",
+    opts = require("configs.interface").nvim_tree,
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
   },
 
