@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   {
     "neovim/nvim-lspconfig",
@@ -18,16 +19,6 @@ return {
     },
     opts = function()
       require "configs.lspconfig"
-      return {
-        ensure_installed = {
-          -- Customize the required LSP service here
-          "lua_ls",
-          "html",
-          "cssls",
-          "clangd",
-          "cmake",
-        },
-      }
     end,
   },
 }
