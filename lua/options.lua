@@ -7,6 +7,8 @@ vim.o.cursorlineopt = 'both' -- to enable cursorline!
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 
+vim.opt.autoread = true
+
 -- Enable Neovim's local configuration file feature(.nvim.lua, .nvimrc, .exrc)
 vim.opt.exrc = true
 vim.opt.secure = true
@@ -62,7 +64,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
   callback = function(args)
     if args.file ~= "" and vim.fn.isdirectory(args.file) == 1 then
       local target_dir = vim.fn.fnamemodify(args.file, ":p")  -- get absolute path
-      vim.cmd.cd(target_dir)
+      -- vim.cmd.cd(target_dir)
       local open_nvimtree = function()
         pcall(function()
           if pcall(require, "nvim-tree.api") then
