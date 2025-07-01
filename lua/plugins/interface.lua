@@ -30,6 +30,9 @@ return {
   {
     "hiphish/rainbow-delimiters.nvim",
     lazy = false,
+    config = function()
+      require("configs.interface").rainbow_delimiters()
+    end,
   },
 
   -- Set consistent terminal background color with theme

@@ -14,7 +14,7 @@ return {
       n = { ["<CR>"] = open_after_tree }, -- [BUG] Temporary fix
     },
     prompt_prefix = "🔍 ",
-    selection_caret = " ",
+    -- selection_caret = ""
   },
   extensions = {
     ["ui-select"] = {
@@ -26,7 +26,7 @@ return {
         },
         sorting_strategy = "ascending",
         prompt_prefix = "🔍 ",
-        selection_caret = " ",
+        -- selection_caret = "",
         border = true,
         winblend = 15,
         color_devicons = true,
