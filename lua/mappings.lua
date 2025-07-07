@@ -55,7 +55,7 @@ end, { desc = "terminal toggle horizontal term" })
 map({ "n", "i", "v", "t" }, "<A-i>", function()
   require("nvchad.term").toggle { pos = "float", id = "floatTerm" }
 end, { desc = "terminal toggle floating term" })
-map("t", "jj", "<C-\\><C-n>", { noremap = true, desc = "terminal toggle quit" })
+map("t", "<Esc>", "<C-\\><C-n>", { noremap = true, desc = "terminal toggle quit" })
 map("t", "<A-q>", "<C-\\><C-n>:q!<CR>", { noremap = true, desc = "terminal toggle close" })
 
 --- CopilotChat
