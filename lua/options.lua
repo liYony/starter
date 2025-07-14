@@ -13,6 +13,8 @@ vim.opt.autoread = true
 vim.opt.exrc = true
 vim.opt.secure = true
 
+vim.opt.relativenumber = true   -- relative line numbers
+
 --- Enable OSC 52 for copying to system clipboard in SSH
 -- See: https://github.com/neovim/neovim/issues/28611#issuecomment-2147744670
 if os.getenv "SSH_TTY" then
