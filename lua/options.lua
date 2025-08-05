@@ -13,7 +13,12 @@ vim.opt.autoread = true
 vim.opt.exrc = true
 vim.opt.secure = true
 
+-- Enable line numbers
 vim.opt.relativenumber = true   -- relative line numbers
+
+-- Enable mouse support
+vim.opt.incsearch = true  -- incremental search
+vim.opt.hlsearch = true   -- highlight search results
 
 --- Enable OSC 52 for copying to system clipboard in SSH
 -- See: https://github.com/neovim/neovim/issues/28611#issuecomment-2147744670
